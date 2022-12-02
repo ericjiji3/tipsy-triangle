@@ -1,7 +1,6 @@
-import React, { useState, Suspense, useEffect, useRef, createRef } from 'react';
+import React, { useState, useEffect, useRef} from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Canvas, useLoader, useFrame } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
@@ -17,7 +16,7 @@ const Triangle = ({count}) => {
   let triangle;
 
   loadTri.scene.traverse(child => {
-    if(child.name == 'Cylinder'){
+    if(child.name === 'Cylinder'){
       triangle = child;
       triangle.material = new THREE.MeshNormalMaterial();
     }
@@ -40,11 +39,6 @@ const Triangle = ({count}) => {
   useFrame((state, delta) => (
       animate.current.map((ani, i) => {
         ani.rotation.x += 0.005 + i*0.0001
-        // if(i%2 == 0){
-        //   ani.rotation.y -= 0.005
-        // }else{
-        //   ani.rotation.y += 0.005
-        // }
         
       })
     )
