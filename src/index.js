@@ -38,8 +38,9 @@ const Triangle = ({count}) => {
 
   useFrame((state, delta) => (
       animate.current.map((ani, i) => {
-        ani.rotation.x += 0.005 + i*0.0001
-        
+        return(
+          ani.rotation.x += 0.005 + i*0.0001
+        )
       })
     )
   )
